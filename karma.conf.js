@@ -24,7 +24,10 @@ module.exports = function(config) {
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
-      'src/js/**.spec,js'
+      'src/js/app.module.js',
+      'src/js/app.states.js',
+      'src/js/**/*.js',
+      'src/js/**/*.spec.js'
     ],
 
 
@@ -35,7 +38,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-        "views/**/*.html": ["ng-html2js"]
+        "src/views/**/*.html": ["ng-html2js"]
     },
 
     ngHtml2JsPreprocessor: {
@@ -77,5 +80,5 @@ module.exports = function(config) {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity
-  })
-}
+  });
+};

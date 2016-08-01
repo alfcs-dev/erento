@@ -4,12 +4,15 @@
     .config(statesConf);
 
     function statesConf($stateProvider, $locationProvider){
-        $stateProvider
+      $stateProvider
         .state('album', {
             url: "/album/:id",
-            templateUrl: "dist/albums.html",
-            controller: 'albumsCtrl',
-            controllerAs: 'vm'
+            templateUrl: "dist/views/albumPhotos.html",
+            controller: 'albumsCtrl as vm'
+        }).state('album.photo', {
+            url: "photo/:id",
+            templateUrl: 'dist/views/photo.html',
+            controller: 'photoCtrl as vm'
         });
     }
 })();

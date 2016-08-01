@@ -9,7 +9,23 @@
         <link href="dist/css/styles.min.css" rel="stylesheet">
     </head>
     <body>
-        <div ui-view></div>
+        <header>
+            <nav>
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h1>Erento GmbH Test</h1>
+                    </div>
+                </md-toolbar>
+            </nav>
+        </header>
+        
+        <main flex layout="row">
+            <aside ng-controller="AlbumsCtrl">
+                <h2>{{vm.title}}</h2>
+            </aside>
+            <section ui-view></section>
+        </main>
+        
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
