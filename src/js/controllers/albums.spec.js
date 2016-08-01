@@ -16,8 +16,7 @@ describe('AlbumsCtrl', function() {
     });
 
     it('Should have an empty array in which we are going to store the albums', function(){
-        expect(AlbumsCtrl.albums.length).toBe(0);
-            
+        expect(AlbumsCtrl.albums.length).toBe(0);      
     });
 
 });
