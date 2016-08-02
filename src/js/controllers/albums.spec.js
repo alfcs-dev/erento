@@ -85,7 +85,6 @@
             expect(AlbumsCtrl.errorLog).toBeUndefined();
             deferred.reject();
             scope.$apply();
-            //expect(AlbumsCtrl.errorLog).toBeDefined();
         });
 
     });

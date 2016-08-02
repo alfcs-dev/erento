@@ -8,7 +8,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
     <!-- endbower -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="dist/css/styles.min.css" rel="stylesheet">
 </head>
 
@@ -16,41 +16,37 @@
     <main ng-cloak>
         <aside ng-controller="AlbumsCtrl as vm" layout="column" ng-cloak>
             <div class="menuBtn">
-                <md-button class="md-fab md-primary"  ng-click="vm.toggleLeft()">
+                <md-button class="md-fab md-primary" ng-click="vm.toggleLeft()">
                     <md-icon md-font-set="material-icons">menu</md-icon>
                 </md-button>
             </div>
-            <md-sidenav  class="md-sidenav-left"  
-                md-component-id="left" 
-                md-is-locked-open="$mdMedia('gt-md')"        
-                md-disable-backdrop
-                md-whiteframe="4" ng-cloak>
-                     <md-toolbar class="md-hue-2">
-                        <div class="md-toolbar-tools">
-                            <h2>
+            <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-disable-backdrop md-whiteframe="4" ng-cloak>
+                <md-toolbar class="md-hue-2">
+                    <div class="md-toolbar-tools">
+                        <h2>
                                 <span>{{vm.title}}</span>
                             </h2>
-                            <span flex></span>
-                            <md-button class="md-icon-button" ng-click="vm.close()" hide-gt-md> 
-                                <md-icon md-font-set="material-icons">clear</md-icon>
-                            </md-button>
-                        </div>
-        	        </md-toolbar>
-                    <md-content>
-                        <md-list flex>
+                        <span flex></span>
+                        <md-button class="md-icon-button" ng-click="vm.close()" hide-gt-md>
+                            <md-icon md-font-set="material-icons">clear</md-icon>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <md-content>
+                    <md-list flex>
                         <md-list-item class="md-2-line" ng-repeat="album in vm.albums" ng-click="vm.loadAlbum(album.id, album.title)">
                             <md-icon class="md-avatar-icon">collections</md-icon>
-                            <div class="md-list-item-text" layout="column" >
-                            <h3>{{album.title}}</h3>
-                            <p> {{ album.userInfo.name }} </p>
+                            <div class="md-list-item-text" layout="column">
+                                <h3>{{album.title}}</h3>
+                                <p> {{ album.userInfo.name }} </p>
                             </div>
                         </md-list-item>
-                        </md-list>
-                    </md-content>
+                    </md-list>
+                </md-content>
             </md-sidenav>
         </aside>
-        <section ui-view>
-            
+        <section class="photos" layout="column" flex ui-view>
+
         </section>
     </main>
 

@@ -2,20 +2,21 @@
     position: fixed;
     width: 165px;
     text-align: left;
-    top: 0;
+    top: 50px;
     left: 0;
     z-index: 10;
 }
 
-aside{
-    min-width: 25vw;
-    md-sidenav{
+aside {
+    md-sidenav {
         width: 100%;
-        .md-list-item-text {
-            max-width: 85%;
-           h3{
-               white-space: normal;
-           }
+        .md-list-item-inner {
+            .md-list-item-text {
+                max-width: 85%;
+                h3 {
+                    white-space: normal;
+                }
+            }
         }
     }
 }
