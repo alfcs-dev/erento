@@ -28,6 +28,7 @@ module.exports = function(config) {
             'src/js/app.states.js',
             'src/js/**/*.js',
             'src/js/**/*.spec.js',
+            'src/js/mocks/mocks.js',
             'src/views/**/*.html'
         ],
 

@@ -2,15 +2,17 @@
     "use strict";
     describe('Photos by Album Controller', function() {
         beforeEach(module("my.templates"));
-        var photosCtrl, $q, deferred, scope, $stateParams, $state, albumMock, state = "album";
+        beforeEach(module('stateMock'));
+        var photosCtrl, $q, deferred, scope, $stateParams, stateService, albumName, stateName = "album";
         beforeEach(module('app', function($provide) {
-            $provide.value('albumName', albumMock = {});
+            albumName = {};
+            $provide.value('albumName', albumName);
         }));
 
-        beforeEach(inject(function(_$controller_, _$rootScope_, _$q_, dataService, _$state_, _$stateParams_) {
+        beforeEach(inject(function(_$controller_, _$rootScope_, _$q_, dataService, state, _$stateParams_) {
             $q = _$q_;
             scope = _$rootScope_.$new();
-            $state = _$state_;
+            stateService = state;
             $stateParams = _$stateParams_;
             deferred = _$q_.defer();
             spyOn(dataService, 'getFn').and.returnValue(deferred.promise);
@@ -29,7 +31,9 @@
 
         it('should respond to URL', function() {
             var params = { albumId: 1, albumName: 'Test album' };
-            expect($state.href(state, params)).toEqual('#/album/1');
+            stateService.expectTransitionTo(stateName, params);
+            scope.$apply();
+            console.log(photosCtrl);
         });
 
         it('should resolve data for the photos', function() {
