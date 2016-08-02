@@ -1,0 +1,17 @@
+.photos {
+    md-grid-tile {
+        cursor: pointer;
+        box-shadow: 6px 6px 13px #888888;
+        border-radius: 10px;
+        background: rgba(206, 203, 199, 0.5);
+        md-grid-tile-footer {
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.45) !important;
+        }
+    }
+}
+
+.photo-title {
+    width: 100%;
+    text-align: center;
+}
