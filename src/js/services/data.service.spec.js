@@ -21,7 +21,7 @@
                 id: 2,
                 title: "sunt qui excepturi placeat culpa"
             }, ]);
-            $httpBackend.whenGET('http://jsonplaceholder.typicode.com/photos/?albumId=1').respond(200, [{
+            $httpBackend.whenGET('http://jsonplaceholder.typicode.com/album/1/photos/').respond(200, [{
                 albumId: 1,
                 id: 1,
                 title: "accusamus beatae ad facilis cum similique qui sunt",
@@ -56,9 +56,9 @@
 
         it('should return a promise and resolve or reject it', function() {
             var albumsUrl = 'http://jsonplaceholder.typicode.com/albums/';
-            var photosUrl = 'http://jsonplaceholder.typicode.com/photos/';
+            var photosUrl = 'http://jsonplaceholder.typicode.com/album/1/photos/';
             var test1 = dataService.getFn(albumsUrl); //Passing a valid url
-            var test2 = dataService.getFn(photosUrl, { albumId: 1 }); //Passing a valid url
+            var test2 = dataService.getFn(photosUrl); //Passing a valid url
             var albumsResult, photosResult;
             expect(albumsResult).toBe(undefined);
             expect(photosResult).toBe(undefined);

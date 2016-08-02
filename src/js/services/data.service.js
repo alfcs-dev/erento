@@ -25,7 +25,7 @@
             $http.get(url, config).success(function(data) {
                 def.resolve(data);
             }).error(function(error) {
-                def.reject('There Was an error on the request');
+                def.reject(error);
             });
             return def.promise;
         }
