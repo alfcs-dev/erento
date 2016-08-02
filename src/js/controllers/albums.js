@@ -5,13 +5,14 @@
         .module('app')
         .controller('AlbumsCtrl', AlbumsCtrl);
 
-    AlbumsCtrl.$inject = ['dataService', '$q'];
+    AlbumsCtrl.$inject = ['dataService', '$q', '$state'];
 
-    function AlbumsCtrl(dataService, $q) {
+    function AlbumsCtrl(dataService, $q, $state) {
         var vm = this;
         vm.title = "Available Albums";
         vm.albums = [];
         vm.users = [];
+        vm.loadAlbum = loadAlbum;
         activate();
 
         ////////////////
@@ -28,12 +29,20 @@
             function ProcessData(data) {
                 vm.users = data[0];
                 vm.albums = data[1];
+
+                angular.forEach(vm.albums, function(value, key){
+                    value.userInfo = vm.users.filter(function(user){return user.id === value.userId; })[0];
+                });
             }
 
             function CatchError(reason) {
                 vm.errorLog = reason;
                 console.log(vm.errorLog);
             }
+        }
+
+        function loadAlbum(albumId, albumName){
+            $state.go('album', {albumId: albumId, albumName: albumName});
         }
     }
 })();

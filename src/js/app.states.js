@@ -6,9 +6,13 @@
     function statesConf($stateProvider, $locationProvider){
       $stateProvider
         .state('album', {
-            url: "/album/:id",
+            url: "/album/:albumId",
             templateUrl: "dist/views/albumPhotos.html",
-            controller: 'albumsCtrl as vm'
+            controller: 'photosCtrl as vm',
+            params:{
+                albumId: null,
+                albumName: null
+            }
         }).state('album.photo', {
             url: "photo/:id",
             templateUrl: 'dist/views/photo.html',

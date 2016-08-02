@@ -1,0 +1,21 @@
+.menuBtn {
+    position: fixed;
+    width: 165px;
+    text-align: left;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+aside{
+    min-width: 25vw;
+    md-sidenav{
+        width: 100%;
+        .md-list-item-text {
+            max-width: 85%;
+           h3{
+               white-space: normal;
+           }
+        }
+    }
+}
